@@ -1,5 +1,7 @@
 # ProofScope
 
+<img src="docs/proofscope_logo.png" alt="ProofScope Logo" width="600px">
+
 ProofScope is an enterprise-grade ZKML verification and audit infrastructure. It transforms raw cryptographic proof artifacts into verifiable, tamper-evident audit trails.
 
 ## Why ProofScope?
