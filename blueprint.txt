@@ -1,0 +1,80 @@
+PROOF-SCOPE BLUEPRINT
+=====================
+
+1. C++ VERIFIER ENGINE
+   - What: The cryptographic "heart" of the project.
+   - Purpose: Performs high-speed validation of ZK-proofs against circuit constraints.
+   - Solves: Computational overhead. Verification of complex AI models is too slow in Python; C++ provides the raw performance required for real-time audit.
+
+2. PYBIND11 BRIDGE
+   - What: The translation layer.
+   - Purpose: Maps the C++ cryptographic functions into standard Python objects.
+   - Solves: Language interoperability. It allows us to keep the performance of C++ while using the flexibility of the Python ecosystem for the web API.
+
+3. FASTAPI INSPECTOR API
+   - What: The gateway and orchestration layer.
+   - Purpose: Receives proof artifacts (JSON/Binary), routes them to the C++ engine, and standardizes the output.
+   - Solves: Accessibility. It makes the verifier interactable via standard HTTP requests, allowing any external tool to send a proof and receive a pass/fail audit.
+
+4. AUDIT DASHBOARD (UI)
+   - What: The visual intelligence layer.
+   - Purpose: Interprets the JSON Audit Report into human-readable charts, execution traces, and compliance flags.
+   - Solves: Trust. Raw cryptographic data is incomprehensible to humans. The UI translates technical proofs into "Policy Compliance" status for stakeholders and auditors.
+
+5. AUDIT REPORT JSON SCHEMA
+   - What: The standard data contract.
+   - Purpose: Defines the required output fields for every verification (e.g., proof status, latency, circuit depth, model version).
+   - Solves: Fragmentation. It ensures that regardless of the model being verified, the resulting audit report is machine-readable and consistent.
+
+---
+THE PROBLEM SOLVED: "THE BLACK BOX AI"
+Modern AI models are black boxes. We cannot inherently trust their outputs. ProofScope solves this by providing a cryptographically verifiable "Audit Trail" that proves a model was executed exactly as claimed, without tampering, and within defined policy boundaries.
+
+Update 6/23/2026
+
+PROOF-SCOPE BLUEPRINT (PRODUCTION VERSION)
+==========================================
+
+1. C++ VERIFIER ENGINE
+   - What: The cryptographic "heart" of the project.
+   - Purpose: Performs high-speed validation of ZK-proofs against circuit constraints.
+   - Solves: Computational overhead. Verification of complex AI models is too slow in Python; C++ provides the raw performance required for real-time audit.
+
+2. PYBIND11 BRIDGE
+   - What: The translation layer.
+   - Purpose: Maps the C++ cryptographic functions into standard Python objects.
+   - Solves: Language interoperability. It allows us to keep the performance of C++ while using the flexibility of the Python ecosystem for the web API.
+
+3. FASTAPI INSPECTOR API
+   - What: The gateway and orchestration layer.
+   - Purpose: Receives proof artifacts (JSON/Binary), routes them to the C++ engine, and standardizes the output.
+   - Solves: Accessibility. It makes the verifier interactable via standard HTTP requests, allowing any external tool to send a proof and receive a pass/fail audit.
+
+4. AUDIT DASHBOARD (UI)
+   - What: The visual intelligence layer.
+   - Purpose: Interprets the JSON Audit Report into human-readable charts, execution traces, and compliance flags.
+   - Solves: Trust. Raw cryptographic data is incomprehensible to humans. The UI translates technical proofs into "Policy Compliance" status for stakeholders and auditors.
+
+5. AUDIT REPORT JSON SCHEMA
+   - What: The standard data contract.
+   - Purpose: Defines the required output fields for every verification (e.g., proof status, latency, circuit depth, model version).
+   - Solves: Fragmentation. It ensures that regardless of the model being verified, the resulting audit report is machine-readable and consistent.
+
+6. AUDIT VAULT (PERSISTENCE LAYER)
+   - What: SQLite integration.
+   - Purpose: Stores historical proof artifacts and audit results.
+   - Solves: Data loss. Ensures that audits are queryable and logged for compliance long after the session ends.
+
+7. SUBPROCESS ENGINE ISOLATION
+   - What: Process-level execution wrapper.
+   - Purpose: Executes the C++ binary in an independent memory space.
+   - Solves: System instability. Prevents a catastrophic C++ memory error from crashing the entire FastAPI inspector service.
+
+8. SECURITY & RATE LIMITING
+   - What: SlowAPI / IP-based throttle.
+   - Purpose: Limits API calls to 5 per minute.
+   - Solves: Denial-of-Service. Protects the CPU-intensive verification engine from being overwhelmed by malicious or accidental traffic.
+
+---
+THE PROBLEM SOLVED: "THE BLACK BOX AI"
+Modern AI models are black boxes. We cannot inherently trust their outputs. ProofScope solves this by providing a cryptographically verifiable "Audit Trail" that proves a model was executed exactly as claimed, without tampering, and within defined policy boundaries.

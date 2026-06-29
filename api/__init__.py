@@ -1,0 +1,1 @@
+"""ProofScope FastAPI inspector package."""

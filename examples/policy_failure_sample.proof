@@ -1,0 +1,5 @@
+proofscope_demo_artifact:v1
+model=credit-risk-alpha
+public_output=approved_without_policy_bounds
+trace=layer_1,layer_2,layer_3,layer_4
+policy_deviation=true

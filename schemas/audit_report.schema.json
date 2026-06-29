@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://proofscope.dev/schemas/audit_report.schema.json",
+  "title": "ProofScope Audit Report",
+  "type": "object",
+  "required": [
+    "verified",
+    "status",
+    "proof_digest",
+    "verification_time_ms",
+    "artifact_name",
+    "engine",
+    "constraints",
+    "trace"
+  ],
+  "properties": {
+    "verified": { "type": "boolean" },
+    "status": { "type": "string", "enum": ["pass", "fail"] },
+    "proof_digest": { "type": "string", "minLength": 1 },
+    "verification_time_ms": { "type": "integer", "minimum": 0 },
+    "artifact_name": { "type": "string" },
+    "engine": { "type": "string" },
+    "constraints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "layer", "satisfied", "confidence", "message"],
+        "properties": {
+          "id": { "type": "string" },
+          "layer": { "type": "string" },
+          "satisfied": { "type": "boolean" },
+          "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+          "message": { "type": "string" }
+        }
+      }
+    },
+    "trace": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["operation", "layer", "policy", "detail"],
+        "properties": {
+          "operation": { "type": "string" },
+          "layer": { "type": "string" },
+          "policy": { "type": "string" },
+          "detail": { "type": "string" }
+        }
+      }
+    }
+  }
+}
